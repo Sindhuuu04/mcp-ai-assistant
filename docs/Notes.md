@@ -219,3 +219,304 @@ Failure categories in use: `authorization`, `argument`, `external_service`.
 - **Authorization**: what an identity may do. **Authentication**: who the caller is.
 - **Idempotency**: repeating an operation has the same effect as doing it once.
 - **Schema validity**: arguments match the declared structure. **Semantic correctness**: arguments make sense for the task.
+
+# MCP-Based AI Assistant for Enterprise Tool Integration
+
+An AI-powered assistant designed to connect Large Language Models (LLMs) with enterprise tools and knowledge sources using the **Model Context Protocol (MCP)**.
+
+This project explores how MCP can simplify enterprise tool integration, enable interoperability, support context-aware responses, and facilitate multi-tool coordination compared with traditional REST API-based integrations.
+
+**Project Status:** Ongoing  
+**Project Type:** Research + Implementation  
+**Focus Areas:** Artificial Intelligence, LLMs, MCP, RAG, Agentic AI, Enterprise Integration
+
+---
+
+## 1. Overview
+
+Modern enterprises use multiple applications and platforms for communication, project management, customer relationship management, databases, and document management.
+
+Integrating these systems directly with AI assistants often requires custom API implementations, authentication handling, tool-specific logic, and maintenance.
+
+This project aims to design and implement an MCP-based AI assistant that enables an LLM to interact with enterprise systems through a standardized integration layer.
+
+The project also investigates the differences between traditional direct API integration and MCP-based integration through controlled experiments.
+
+## 2. Objectives
+
+- Design an AI assistant capable of interacting with enterprise tools.
+- Understand and implement the Model Context Protocol.
+- Integrate LLMs with external tools and knowledge sources.
+- Explore Retrieval-Augmented Generation (RAG) for context-aware responses.
+- Implement tool discovery, selection, execution, and response handling.
+- Explore agent workflows and multi-step tool orchestration.
+- Implement authentication, authorization, validation, and reliability controls.
+- Compare MCP-based integration with traditional REST API integration.
+
+## 3. Key Technologies
+
+| Category | Technologies / Concepts |
+|---|---|
+| Programming | Python |
+| AI / LLM | Large Language Models, Prompt Engineering |
+| Integration | Model Context Protocol (MCP), REST APIs |
+| Retrieval | RAG, Embeddings, Vector Search |
+| Agentic AI | Tool Calling, Planning, Orchestration |
+| Security | OAuth 2.0, RBAC, Authentication, Authorization |
+| Data | JSON, Structured Data, Knowledge Sources |
+| Evaluation | Precision@K, Recall@K, MRR, Latency, Reliability |
+
+*The technology stack may evolve as implementation progresses.*
+
+## 4. Proposed Architecture
+
+The proposed architecture consists of the following components:
+
+1. **User Interface:** Accepts natural-language queries.
+2. **LLM Layer:** Interprets user intent and determines the appropriate action.
+3. **Agent / Orchestration Layer:** Manages tool selection, planning, and multi-step execution.
+4. **MCP Client:** Discovers and communicates with MCP servers.
+5. **MCP Server:** Exposes enterprise capabilities through standardized tools and resources.
+6. **Enterprise Systems:** External applications, APIs, databases, and knowledge sources.
+7. **RAG Layer:** Retrieves relevant information to support grounded responses.
+8. **Security Layer:** Enforces authentication, authorization, input validation, and access controls.
+
+### Architecture Flow
+
+```text
+                 User Query
+                     |
+                     v
+              AI Assistant
+                     |
+                     v
+                LLM Layer
+                     |
+                     v
+          Agent / Orchestration
+                     |
+                     v
+                MCP Client
+                     |
+                     v
+                MCP Server
+                     |
+          +----------+----------+
+          |          |          |
+          v          v          v
+        Tools     Resources   Prompts
+          |          |
+          +----------+
+                     |
+                     v
+          Enterprise Systems
+                     |
+                     v
+             Tool Results
+                     |
+                     v
+            LLM Response
+                     |
+                     v
+                User
+```
+
+## 5. Core Features and Research Areas
+
+### 5.1 MCP Fundamentals
+- MCP architecture and communication flow.
+- MCP clients and servers.
+- Tools, Resources, and Prompts.
+- Tool discovery and metadata.
+- Standardized enterprise integration.
+
+### 5.2 Tool Calling
+- Tool definitions and structured schemas.
+- Tool selection based on user intent.
+- Argument generation and validation.
+- Tool execution and result handling.
+- Error handling and invalid argument detection.
+
+### 5.3 Retrieval-Augmented Generation (RAG)
+- Document ingestion and preprocessing.
+- Text chunking and embedding generation.
+- Semantic search and similarity retrieval.
+- Context-aware response generation.
+- Grounded answers and hallucination reduction.
+
+### 5.4 Agentic AI
+- Multi-step task planning.
+- Agent decision-making.
+- Tool execution and observation.
+- Workflow orchestration.
+- Bounded execution and loop prevention.
+
+### 5.5 Security and Reliability
+- Authentication and authorization.
+- OAuth 2.0 concepts and access scopes.
+- Role-Based Access Control (RBAC).
+- Least-privilege access.
+- Input validation and secure tool execution.
+- Timeouts, retries, and idempotency.
+- Logging and observability.
+
+## 6. Learning and Development Progress
+
+| Day | Topic | Key Concepts |
+|---|---|---|
+| 15 | Tool Selection | Tool metadata, selection accuracy |
+| 16 | RAG Fundamentals | Documents, chunking, retrieval |
+| 17 | Embeddings | Vector representations, cosine similarity |
+| 18 | MCP Resources | Tools vs Resources |
+| 19 | Retrieval Evaluation | Precision@K, Recall@K, MRR |
+| 20 | RAG Generation | Grounding, faithfulness, hallucinations |
+| 21 | Conversation Memory | Context windows, query rewriting |
+| 22 | Agentic AI | Planning, multi-step execution |
+| 23 | Reliability | Failures, retries, timeouts |
+| 24 | Security | Authentication, authorization, RBAC |
+| 25 | Planned | Structured Tool Schemas and Validation |
+
+## 7. Research Methodology
+
+The research compares two approaches:
+
+**Approach A: Traditional REST API Integration**
+- Direct integration with enterprise APIs.
+- Custom API handling and tool-specific logic.
+- Application-managed authentication and execution.
+
+**Approach B: MCP-Based Integration**
+- Standardized communication through MCP.
+- Tool discovery and structured tool definitions.
+- MCP client-server interaction.
+
+Both approaches should use equivalent underlying capabilities and controlled experimental conditions.
+
+### Evaluation Metrics
+
+| Metric | Purpose |
+|---|---|
+| Development Effort | Time and effort required for integration |
+| Interoperability | Ease of connecting different systems |
+| Latency | Time taken to complete a task |
+| Reliability | Successful execution rate |
+| Tool Selection Accuracy | Correctness of selected tools |
+| Argument Validity | Correctness of generated tool arguments |
+| Maintainability | Effort required to modify integrations |
+| Scalability | Ability to support additional tools |
+| Security | Enforcement of access-control policies |
+| Task Success Rate | Percentage of successfully completed tasks |
+
+**Important:** MCP standardizes the integration boundary; it does not automatically improve the underlying LLM's intelligence or RAG retrieval quality. These factors must be controlled during experiments.
+
+## 8. Security Considerations
+
+Security is an essential part of enterprise AI integration.
+
+The implementation considers:
+
+- Authentication before accessing protected systems.
+- Authorization checks before tool execution.
+- Role-based access control.
+- Least-privilege permissions.
+- Input and argument validation.
+- Denial of unknown or unauthorized tools by default.
+- Protection of sensitive credentials.
+- Bounded execution and timeout handling.
+
+The LLM must never be treated as the authorization boundary. Authorization must be enforced by the application or the enterprise service.
+
+## 9. Planned Repository Structure
+
+```text
+MCP-Based-AI-Assistant/
+│
+├── README.md
+│
+├── docs/
+│   ├── project-overview.md
+│   ├── system-architecture.md
+│   ├── research-methodology.md
+│   └── learning-documentation.md
+│
+├── src/
+│   ├── client/
+│   ├── server/
+│   ├── agent/
+│   ├── tools/
+│   ├── rag/
+│   └── security/
+│
+├── experiments/
+│   ├── day15_tool_selection.md
+│   ├── day16_rag_fundamentals.md
+│   ├── day17_embeddings.md
+│   ├── day18_mcp_resources.md
+│   ├── day19_retrieval_evaluation.md
+│   ├── day20_rag_generation.md
+│   ├── day21_conversation_memory.md
+│   ├── day22_agentic_workflows.md
+│   ├── day23_reliability.md
+│   ├── day24_security.md
+│   └── day25_schema_validation.md
+│
+├── tests/
+│   ├── unit/
+│   └── integration/
+│
+├── requirements.txt
+└── .gitignore
+```
+
+*This is the proposed structure and can be adjusted as implementation evolves.*
+
+## 10. Future Enhancements
+
+- Integrate real enterprise applications.
+- Implement multiple MCP servers.
+- Add persistent conversation memory.
+- Integrate vector databases for semantic retrieval.
+- Implement advanced agent orchestration.
+- Add comprehensive automated testing.
+- Conduct controlled performance benchmarks.
+- Analyze results and document research findings.
+
+## 11. Expected Outcome
+
+The expected outcome is a working MCP-based AI assistant that can interact with enterprise tools and knowledge sources through standardized interfaces.
+
+The research will provide an experimental comparison of MCP-based integration and traditional REST API integration, focusing on development effort, interoperability, reliability, performance, maintainability, and security.
+
+## 12. Research Paper Structure
+
+1. Abstract
+2. Introduction
+3. Background and Related Work
+4. System Architecture
+5. Implementation
+6. Experimental Methodology
+7. Results and Analysis
+8. Discussion
+9. Security Considerations
+10. Limitations
+11. Future Scope
+12. Conclusion
+13. References
+
+---
+
+## Project Status
+
+**Current Progress:** Learning and system design through Day 24.
+
+**Next Milestone:** Day 25 – Structured Tool Schemas and Validation.
+
+The project is under active development. Experimental results, implementation screenshots, benchmark data, and conclusions will be added as the system progresses.
+
+---
+
+## Author
+
+**Sindhu Harshitha Thoviti**
+
+Research Project: MCP-Based AI Assistant for Enterprise Tool Integration
